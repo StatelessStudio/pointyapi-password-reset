@@ -186,13 +186,9 @@ export class PointyPasswordReset {
 					.catch((error) => response.error('Could not load user'));
 
 				if (user) {
-					console.log('user before', user);
-
 					// Update user's password
 					user.password = user.tempPassword;
 					user.tempPassword = null;
-
-					console.log('updated user', user);
 
 					// Save user
 					await getRepository(request.userType)
