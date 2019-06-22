@@ -1,5 +1,4 @@
 import { getRepository } from 'typeorm';
-import { UserStatus } from 'pointyapi/enums';
 
 // Token
 import { jwtBearer, pointy } from 'pointyapi';
@@ -13,6 +12,7 @@ import { hashSync } from 'bcryptjs';
 export class PointyPasswordReset {
 	// Linkback url
 	public clientUrl: string = process.env.CLIENT_URL;
+	public clientEndpoint = '/confirm-password-reset';
 
 	// PointyAPI Mailer module
 	public mailer;
@@ -62,7 +62,7 @@ export class PointyPasswordReset {
 			isPasswordReset: true
 		});
 
-		return `${this.clientUrl}/password-reset?id=${activateToken}`;
+		return `${this.clientUrl}${this.clientEndpoint}?id=${activateToken}`;
 	}
 
 	/**
