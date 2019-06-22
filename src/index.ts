@@ -186,6 +186,12 @@ export class PointyPasswordReset {
 					.catch((error) => response.error('Could not load user'));
 
 				if (user) {
+					// Check temp password
+					if (!user.tempPassword) {
+						response.sendStatus(204);
+						return;
+					}
+
 					// Update user's password
 					user.password = user.tempPassword;
 					user.tempPassword = null;
