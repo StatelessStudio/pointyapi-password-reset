@@ -16,7 +16,7 @@ export class PointyPasswordReset {
 
 	// PointyAPI Mailer module
 	public mailer;
-	public resetTemplate: string = 'pw-reset';
+	public resetTemplate = 'pw-reset';
 
 	// PointyAPI User Type
 	public userType;
@@ -38,9 +38,13 @@ export class PointyPasswordReset {
 	 * @param userType User type
 	 * @param jwtBearer (Optional) Custom jwtBearer instances
 	 */
-	public init(mailer, userType, jwtBearer?) {
+	public init(mailer, userType, jwt?) {
 		this.mailer = mailer;
 		this.userType = userType;
+
+		if (jwt) {
+			this.jwtBearer = jwt;
+		}
 	}
 
 	/**
@@ -84,7 +88,7 @@ export class PointyPasswordReset {
 		}
 
 		// Find user by email
-		let user: any = await getRepository(this.userType)
+		const user: any = await getRepository(this.userType)
 			.findOne({
 				where: [
 					{ email: request.body.email },
@@ -119,7 +123,7 @@ export class PointyPasswordReset {
 		// Send email
 
 		// Get template
-		let template = this.mailer.getTemplate(this.resetTemplate);
+		const template = this.mailer.getTemplate(this.resetTemplate);
 
 		if (status && template) {
 			user.reset_link = await this.createLink(user);
@@ -181,7 +185,7 @@ export class PointyPasswordReset {
 				}
 
 				// Get user
-				let user: any = await getRepository(this.userType)
+				const user: any = await getRepository(this.userType)
 					.findOne({ id: decoded.id })
 					.catch((error) => response.error('Could not load user'));
 
