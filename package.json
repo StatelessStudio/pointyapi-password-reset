@@ -1,37 +1,37 @@
 {
-  "name": "pointyapi-password-reset",
-  "version": "0.0.1",
-  "author": "stateless-studio",
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc --p tsconfig.json",
-    "build:spec": "tsc --p tsconfig.json && tsc --p tsconfig.spec.json",
-    "postinstall": "tsc --p tsconfig.dist.json"
-  },
-  "dependencies": {
-    "pointyapi": "^3.0.0",
-    "typeorm": "^0.2.18"
-  },
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "devDependencies": {
-    "@types/node": "^10.14.10",
-    "source-map-support": "^0.5.12",
-    "tslint": "^5.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.5.2"
-  },
-  "description": "*\"Password Reset module for PointyAPI\"*",
-  "directories": {
-    "test": "test"
-  },
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StatelessStudio/pointyapi-password-reset.git"
-  },
-  "bugs": {
-    "url": "https://github.com/StatelessStudio/pointyapi-password-reset/issues"
-  },
-  "homepage": "https://github.com/StatelessStudio/pointyapi-password-reset#readme"
+	"name": "pointyapi-password-reset",
+	"version": "0.0.2",
+	"author": "stateless-studio",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc --p tsconfig.json",
+		"build:spec": "tsc --p tsconfig.json && tsc --p tsconfig.spec.json",
+		"postinstall": "tsc --p tsconfig.dist.json"
+	},
+	"dependencies": {
+		"pointyapi": "^3.0.0",
+		"typeorm": "^0.2.18"
+	},
+	"main": "./index.js",
+	"types": "./index.d.ts",
+	"devDependencies": {
+		"@types/node": "^10.14.10",
+		"source-map-support": "^0.5.12",
+		"tslint": "^5.18.0",
+		"tslint-eslint-rules": "^5.4.0",
+		"typescript": "^3.5.2"
+	},
+	"description": "*\"Password Reset module for PointyAPI\"*",
+	"directories": {
+		"test": "test"
+	},
+	"keywords": [],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/StatelessStudio/pointyapi-password-reset.git"
+	},
+	"bugs": {
+		"url": "https://github.com/StatelessStudio/pointyapi-password-reset/issues"
+	},
+	"homepage": "https://github.com/StatelessStudio/pointyapi-password-reset#readme"
 }
