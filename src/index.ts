@@ -201,17 +201,17 @@ export class PointyPasswordReset {
 					user.password = user.tempPassword;
 					user.tempPassword = null;
 
-					if (
-						await runHook(
-							'onPasswordReset',
-							user,
-							request,
-							response
-						)
-					) {
+					const hook: any = await runHook(
+						'onPasswordReset',
+						user,
+						request,
+						response
+					);
+
+					if (hook && hook instanceof Array && hook.length) {
 						// Save user
 						await getRepository(request.userType)
-							.save(user)
+							.save(hook[0])
 							.then(() => response.sendStatus(204))
 							.catch((error) => {
 								response.error('Could not update user');
