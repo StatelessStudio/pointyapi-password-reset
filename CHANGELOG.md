@@ -1,5 +1,8 @@
 # PointyApi Password-Reset Module Changelog
 
+## [0.1.0] Jul-23-2019
+
+
 ## [0.0.2] Jul-15-2019
 
 ### Fixes

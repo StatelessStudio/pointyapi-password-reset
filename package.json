@@ -1,6 +1,6 @@
 {
 	"name": "pointyapi-password-reset",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"author": "stateless-studio",
 	"license": "MIT",
 	"scripts": {
@@ -15,7 +15,7 @@
 	"main": "./index.js",
 	"types": "./index.d.ts",
 	"devDependencies": {
-		"@types/node": "^10.14.12",
+		"@types/node": "^10.14.13",
 		"source-map-support": "^0.5.12",
 		"tslint": "^5.18.0",
 		"tslint-eslint-rules": "^5.4.0",
