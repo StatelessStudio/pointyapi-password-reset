@@ -9,7 +9,7 @@
 		"postinstall": "tsc --p tsconfig.dist.json"
 	},
 	"dependencies": {
-		"pointyapi": "github:StatelessStudio/pointyapi#v3.0.3",
+		"pointyapi": "^3.0.3",
 		"typeorm": "^0.2.18"
 	},
 	"main": "./index.js",
