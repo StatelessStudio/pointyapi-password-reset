@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+import { runHook } from 'pointyapi/utils';
 
 // Token
 import { jwtBearer, pointy } from 'pointyapi';
@@ -200,13 +201,22 @@ export class PointyPasswordReset {
 					user.password = user.tempPassword;
 					user.tempPassword = null;
 
-					// Save user
-					await getRepository(request.userType)
-						.save(user)
-						.then(() => response.sendStatus(204))
-						.catch((error) => {
-							response.error('Could not update user');
-						});
+					const hook: any = await runHook(
+						'onPasswordReset',
+						user,
+						request,
+						response
+					);
+
+					if (hook && hook instanceof Array && hook.length) {
+						// Save user
+						await getRepository(request.userType)
+							.save(hook[0])
+							.then(() => response.sendStatus(204))
+							.catch((error) => {
+								response.error('Could not update user');
+							});
+					}
 				}
 				else {
 					// Unauthenticated
