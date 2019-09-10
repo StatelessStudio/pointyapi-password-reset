@@ -201,12 +201,20 @@ export class PointyPasswordReset {
 					user.password = user.tempPassword;
 					user.tempPassword = null;
 
-					const hook: any = await runHook(
-						'onPasswordReset',
-						user,
-						request,
-						response
-					);
+					let hook: any;
+
+					// Run password reset hook, if available
+					if ('onPasswordReset' in user) {
+						hook = await runHook(
+							'onPasswordReset',
+							user,
+							request,
+							response
+						);
+					}
+					else {
+						hook = [ user ];
+					}
 
 					if (hook && hook instanceof Array && hook.length) {
 						// Save user
