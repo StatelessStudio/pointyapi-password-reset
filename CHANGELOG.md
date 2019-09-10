@@ -3,6 +3,7 @@
 ## [0.1.2] Sep-10-2019
 
 ### Fixes
+- [Issue #6] onPasswordReset hook should be optional
 - npm update
 
 ## [0.1.1] Aug-26-2019
