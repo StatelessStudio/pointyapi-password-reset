@@ -1,5 +1,10 @@
 # PointyApi Password-Reset Module Changelog
 
+## [0.1.5] Oct-21-2020 - Postinstall Fix
+
+### Fixes
+- Changed npm postinstall script to prepare
+
 ## [0.1.4] Nov-22-2019
 
 ### Fixes
